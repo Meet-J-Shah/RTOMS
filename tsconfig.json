@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "typeRoots": ["./src/@types","./node_modules/@types"],
+      "target": "es6",
+      "module": "CommonJS",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "noImplicitAny": true,
+      "noEmitOnError": false,
+      "outDir": "build"
+    }
+  }

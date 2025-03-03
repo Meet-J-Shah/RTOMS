@@ -1,0 +1,22 @@
+{
+    "development": {
+      "username": "root",
+      "password": "",
+      "database": "test_003",
+      "host": "localhost",
+      "dialect": "mysql",
+      "seederStorage": "json",
+      
+      "seederStoragePath": "sequelizeData.json",
+      
+      "seederStorageTableName": "sequelize_data"
+      
+    },
+    "test": {
+      "username": "root",
+      "password": "",
+      "database": "test_002",
+      "host": "localhost",
+      "dialect": "mysql"
+    }
+  }
