@@ -7,7 +7,7 @@ import express, {
 } from "express";
 // import * as CONSTANTS from "./constatnts/constant";
 import * as dotenv from "dotenv";
-// import routes from "./routes";
+import routes from "./routes";
 import * as db from "./models/";
 // import * as db2 from "./models/user.model";
 
@@ -16,7 +16,7 @@ import environmentConfig from "./constants/environment.constant";
 import helmet from "helmet";
 import morgan from "morgan";
 // import { default as swaggerDocument } from "./swagger/api.json";
-import swaggerUi from "swagger-ui-express";
+// import swaggerUi from "swagger-ui-express";
 // import errorCatcher from "./utils/error.catcher";
 //import { BaseError } from "./utils/error.handler";
 //import ExpressMongoSanitize from 'express-mongo-sanitize';
@@ -49,7 +49,7 @@ export class App {
     //   swaggerUi.serve,
     //   swaggerUi.setup(swaggerDocument)
     // );
-    // this.app.use(routes);
+    this.app.use(routes);
     // this.app.use(errorCatcher);
     // /* eslint-disable no-unused-vars */
     //     this.app.use((err:unknown, req:Request, res:Response, next:NextFunction) => {
@@ -71,7 +71,7 @@ export class App {
     //   return res.status(CONSTANTS.default.RESPONSE_CODES.INTERNAL_SERVER_ERROR).send(CONSTANTS.default.ERROR_MESSAGES.DEFAULT_ERROR);
     //     });
 
-    //this.app.use(errors());
+    // this.app.use(errors());
   }
   public async listen() {
     //console.log(db);
@@ -79,10 +79,11 @@ export class App {
     await db.sequelize.authenticate();
     //console.log(CONSTANTS.LOG_MESSAGES.DB_CONNECTION);
     console.log("Database connected");
-    await db.sequelize.sync(
+    await db.sequelize
+      .sync
       // { force: true }
-      { force: true }
-    );
+      //   { force: true }
+      ();
     this.app.listen(environmentConfig.PORT, () => {
       console.log(`Server running on ${environmentConfig.PORT}`);
     });
